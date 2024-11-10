@@ -1,0 +1,2 @@
+# Task 1: Create a new feature branch named feature/tests.
+git checkout -b feature/tests

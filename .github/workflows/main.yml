@@ -1,0 +1,38 @@
+# Task 3: Implement this branch in **main.yml** to run this branch in the pipeline
+
+name: CI
+
+on:
+  push:
+    branches:
+      - feature/tests
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x  # replace with your Python version
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run tests
+      run: |
+        pytest app_test.py
+
+# Task 4: Configure a CI/CD pipeline to build and test the feature/tests branch.
+# The configuration in main.yml already sets up the CI/CD pipeline for the feature/tests branch.
+
+
+# Task 5: Monitor the CI/CD pipeline to ensure that the build and tests pass successfully.
+   # 1. Push changes to GitHub: bash git add . git commit -m "Add test for negative sum" git push origin feature/tests
+   # 2. Check the Actions tab in GitHub repository to monitor the pipeline status.

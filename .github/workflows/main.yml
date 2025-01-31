@@ -29,10 +29,3 @@ jobs:
       run: |
         pytest app_test.py
 
-# Task 4: Configure a CI/CD pipeline to build and test the feature/tests branch.
-# The configuration in main.yml already sets up the CI/CD pipeline for the feature/tests branch.
-
-
-# Task 5: Monitor the CI/CD pipeline to ensure that the build and tests pass successfully.
-   # 1. Push changes to GitHub: bash git add . git commit -m "Add test for negative sum" git push origin feature/tests
-   # 2. Check the Actions tab in GitHub repository to monitor the pipeline status.

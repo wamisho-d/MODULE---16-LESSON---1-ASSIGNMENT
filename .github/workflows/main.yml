@@ -1,24 +1,27 @@
-# Task 3: Implement this branch in **main.yml** to run this branch in the pipeline
-
-name: CI
+name: CI/CD Pipeline
 
 on:
   push:
     branches:
+      - master
+      - feature/tests
+  pull_request:
+    branches:
+      - master
       - feature/tests
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.x  # replace with your Python version
+        python-version: '3.x'
 
     - name: Install dependencies
       run: |
@@ -27,5 +30,4 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest app_test.py
-
+        pytest

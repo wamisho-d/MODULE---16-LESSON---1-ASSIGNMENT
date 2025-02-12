@@ -1,9 +1,12 @@
-import pytest
+import unittest
+from app import sum_function  # Adjust the import based on your app's structure
 
-def test_negative_sum():
-    # Sample function to test negative sum
-    def sum(a, b):
-        return a + b
+class TestSumFunction(unittest.TestCase):
+    
+    def test_negative_sum(self):
+        # Test for negative sum
+        result = sum_function(-5, -7)
+        self.assertEqual(result, -12, "Should be -12")
 
-    result = sum(-5, -10)
-    assert result == -15, f"Expected -15 but got {result}"
+if __name__ == '__main__':
+    unittest.main()
